@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+import { connect } from "react-redux";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import { AddTask, FilterTasks, ListFilterTasks } from "./components/index";
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="card  text-white bg-dark border-danger text-center w-75">
+          <div className="card-body">
+            < AddTask />
+            <ListFilterTasks />
+          </div>
+          <div className="card-footer border-danger text-muted">
+            <FilterTasks />
+          </div>
+        </div>
       </header>
     </div>
+
   );
 }
 
-export default App;
+
+
+export default connect()(App);
